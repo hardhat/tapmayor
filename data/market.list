@@ -1,0 +1,147 @@
+build Alley {
+	level=1
+	category=Road
+	grain=0
+	wood=-1
+	brick=0
+	metal=0
+	livestock=0
+}
+build Street {
+	level=2
+	category=Road
+	grain=0
+	wood=0
+	brick=-1
+	metal=0
+	livestock=0
+}
+build Highway {
+	level=3
+	category=Road
+	grain=0
+	wood=0
+	brick=0
+	metal=-1
+	livestock=0
+}
+build House {
+	level=1
+	category=Housing
+	grain=0
+	wood=2
+	brick=1
+	metal=0
+	livestock=1
+	capacity=5
+}
+build Townhouse Row {
+	level=2
+	category=Housing
+	grain=0
+	wood=10
+	brick=20
+	metal=0
+	livestock=10
+	capacity=50
+}
+build Condo {
+	level=3
+	category=Housing
+	grain=0
+	wood=0
+	brick=100
+	metal=75
+	livestock=30
+	capacity=500
+}
+build Shop {
+	level=1
+	category=Shopping
+	grain=3
+	wood=2
+	brick=1
+	metal=0
+	livestock=0
+	capacity=10
+}
+build Strip Plaza {
+	level=2
+	category=Shopping
+	grain=0
+	wood=15
+	brick=15
+	metal=0
+	livestock=25
+	capacity=100
+}
+build Large Mall {
+	level=3
+	category=Shopping
+	grain=300
+	wood=300
+	brick=0
+	metal=250
+	livestock=0
+	capacity=1000
+}
+build Office {
+	level=1
+	category=Office
+	grain=0
+	wood=0
+	brick=2
+	metal=1
+	livestock=1
+	capacity=10
+}
+build Office Complex {
+	level=2
+	category=Office
+	grain=0
+	wood=0
+	brick=10
+	metal=20
+	livestock=10
+	capacity=100
+}
+build Office Tower {
+	level=3
+	category=Office
+	grain=0
+	wood=0
+	brick=80
+	metal=200
+	livestock=50
+	capacity=1000
+}
+build Street Party {
+	level=1
+	category=Festival
+	grain=2
+	wood=0
+	brick=0
+	metal=0
+	livestock=2
+	capacity=10
+}
+build Town Fair {
+	level=2
+	category=Festival
+	grain=20
+	wood=0
+	brick=0
+	metal=0
+	livestock=50
+	capacity=100
+}
+build Major Exhibition {
+	level=3
+	category=Festival
+	grain=500
+	wood=0
+	brick=0
+	metal=0
+	livestock=175
+	capacity=1000
+}

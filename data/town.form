@@ -1,0 +1,48 @@
+form town {
+	theme = res/main.theme
+	autoWidth = true
+	autoHeight = true
+
+	container boxie {
+		layout =  LAYOUT_VERTICAL
+        position = 0, 0
+        style = basic
+		
+		label topLabel {
+			text = Tap Mayor
+			style = title	
+		}
+		container across {
+			layout = LAYOUT_FLOW
+			style = basic
+			button questButton {
+				text = Quest
+				size = 140,40 
+			}
+			button toolsButton {
+				text = Tools
+				size = 140,40 
+			}
+			button constructionButton {
+				text = Construction
+				size = 140,40 
+			}
+		}
+		button tradeButton {
+			text = Trade
+			size = 140,40 
+		}
+		button connectButton {
+			text = Connect
+			size = 140,40 
+		}
+		button inventoryButton {
+			text = Inventory
+			size = 140,40 
+		}
+		button incomeButton {
+			text = Income
+			size = 140,40 
+		}
+	}
+}

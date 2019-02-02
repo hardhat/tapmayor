@@ -1,0 +1,15 @@
+item Grain {
+	icon=Noodles
+}
+item Wood {
+	icon=Tree
+}
+item Brick {
+	icon=Brick
+}
+item Metal {
+	icon=Gold
+}
+item Livestock {
+	icon=Goat
+}
