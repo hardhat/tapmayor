@@ -1,0 +1,10 @@
+water
+	animals | sheep (wool)
+	metal | gold (ore)
+	blocks | bricks (brick)
+	agriculture | pasta (grain)
+	wood | tree (lumber)
+fish
+
+
+brick, lumber, wool, grain, and ore
