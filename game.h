@@ -1,16 +1,24 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <map>
 #include <deque>
 
-#include "layer.h"
+#include "screen.h"
 #include "tile.h"
 
 enum GameMode {
     MODE_TITLE,
-    MODE_CHOOSEAVATAR,
-    MODE_LEVEL,
-    MODE_GAMEOVER,
+    MODE_START,
+    MODE_TOWN,
+    MODE_MAP,
+    MODE_CHAT,
+    MODE_FRIEND,
+    MODE_INCOME,
+    MODE_INVENTORY,
+    MODE_BUILD,
+    MODE_QUEST,
+    MODE_RESOURCES,
 };
 
 enum DPadKey {
@@ -24,26 +32,15 @@ enum DPadKey {
     DPAD_START,
 };
 
-class Player;
-class Actor;
-class Join;
-
-typedef std::deque<Player *> PlayerList;
-typedef std::deque<Actor *> ActorList;
-typedef std::deque<Layer *> LayerList;
+typedef std::map<int,Screen *> ScreenMap;
 
 class Game {
 public:
     int mode;
     Tile *tile;
-    Layer *bgLayer;
-    Layer *fgLayer;
-    Layer *characterLayer;
-    Layer *hobgoblinLayer;
-    PlayerList playerList;
-    ActorList enemyList;
-    Join *join;
-    int totalTime;
+    Tile *guiTile;
+
+    ScreenMap screenMap;    // Displays the active one according to the current mode.
 
     Game();
     ~Game();
@@ -53,17 +50,6 @@ public:
     void update(int elapsed);
     void draw();
     void handleAction(int which,int id,bool down);
-
-    bool playersWin();
-    bool enemiesActive();
-    bool canMoveTo(Player *player,int tx,int ty);
-    bool isObstacle(int tx,int ty);
-    int canCollect(int tx,int ty);
-    int collect(int tx,int ty);
-    void spawnEnemies();
-    Actor *targetEnemy(Player *player);
-    Player *targetPlayer(Actor *enemy);
-    bool enemyOnScreen();
 };
 
 extern Game game;

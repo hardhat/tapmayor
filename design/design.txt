@@ -1,26 +1,26 @@
 Screen design:
 
-- Splash Screen
+- MODE_TITLE Splash Screen
 
-- Start Game Screen
+- MODE_START Start Game Screen
 	- button for start game
 		- does geolocation check in
 	- button for more games
 	- button for how to play
 	- button for share to expand your network
 
-- Town screen
+- MODE_TOWN Town screen
 	- shows all built buildings on the street so far.
 	- controls to rearrange buildings
 	- controls to add buildings
 	- controls to upgrade buildings
 
-- Network Screen
+- MODE_MAP Network Screen
 	- shows map (yahoo? mapquest?) with MST
 	- post to sell resources
 	- pick to buy resources
 
-- Network chatter screen
+- MODE_CHAT Network chatter screen
 	- entry box to post chatter
 	- button to paste game image
 	- list box with recent conversations
@@ -28,23 +28,23 @@ Screen design:
 	- shows number of live contacts
 	- list box with network contacts to directly connect to
 
-- Network recruiting screen
+- MODE_FRIEND Network recruiting screen
 	- shows points where people have recently checked in
 
-- Income screen
+- MODE_INCOME Income screen
 	- shows resource production and manufactured product production and profit
 
-- Inventory screen
+- MODE_INVENTORY Inventory screen
 	- shows the inventory
 	- allows out of network conversion of resources
 
-- Build building screen
+- MODE_BUILD Build building screen
 	- shows list of buildings that can be built
 
-- Quest screen
+- MODE_QUEST Quest screen
 	- shows list of incomplete quests/completed quests
 
-- Resources screen
+- MODE_RESOURCES Resources screen
 	- shows currently available resources
 
-- 
+-

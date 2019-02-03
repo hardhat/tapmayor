@@ -16,25 +16,11 @@ SoundMap soundMap;
 
 const char *sfxPath[]={
 	"data/none.wav",
-    "data/quest.wav",
-	"data/welcome.wav",
-
-	"data/ugh1.wav",
-	"data/ugh2.wav",
-	"data/ugh3.wav",
-
-	"data/hah.wav",
-
-	"data/firebreath.wav",
-	"data/zap.wav",
-	"data/missed.wav",
-
-	"data/flames.wav",
-
-	"data/die.wav",
-
-	"data/win.wav",
-	"data/lose.wav",
+	"data/start.wav",
+	"data/buzz.wav",
+      	"data/click.wav",
+      	"data/getitem.wav",
+      	"data/itemready.wav",  
 };
 
 Sound::Sound()

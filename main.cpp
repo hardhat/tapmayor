@@ -32,9 +32,9 @@ int main(int argc,char **argv)
 
 // create a new window
     SDL_Window* screen = NULL;
-    screenw=320;
-    screenh=240;
-    screen = SDL_CreateWindow("Dragon Battle",
+    screenw=1024;
+    screenh=600;
+    screen = SDL_CreateWindow("Tap Mayor - By Distant Games",
                           SDL_WINDOWPOS_CENTERED,
                           SDL_WINDOWPOS_CENTERED,
                           screenw,screenh,

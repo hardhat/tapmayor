@@ -22,10 +22,11 @@ static TileNameMap tileNameMap;
 static TileTextureMap tileTextureMap;
 static int tileId;
 
-Tile::Tile(const char *name,int tileWidth,int tileHeight)
+Tile::Tile(const char *name,int tileWidth,int tileHeight,int spacing)
 {
 	this->tileWidth=tileWidth;
 	this->tileHeight=tileHeight;
+	this->spacing=spacing;
 	imageId=-1;
 	if(tileNameMap.find(name)!=tileNameMap.end()) {
 		imageId=tileNameMap[name];
@@ -74,10 +75,10 @@ void Tile::draw(int id,int col,int row)
 	}
 
 	Texture *t=tileTextureMap[imageId];
-	int tilesAcross = t->w/tileWidth;
+	int tilesAcross = t->w/(tileWidth+spacing);
 	int tx=id%tilesAcross;
 	int ty=id/tilesAcross;
-	SDL_Rect srcRect={tx*tileWidth,ty*tileHeight,tileWidth,tileHeight};
+	SDL_Rect srcRect={tx*(tileWidth+spacing),ty*(tileHeight+spacing),tileWidth,tileHeight};
 	SDL_Rect rect={(int)((x-tileWidth/2)*renderScale)+screenleft,(int)((y-tileHeight/2-maptop)*renderScale)+screentop,(int)(tileWidth*renderScale),(int)(tileHeight*renderScale)};
     //if(rect.x>screenw || rect.y>screenh || rect.x-rect.w<0 || rect.y-rect.h<0) return;
 	SDL_RenderCopy(renderer, t->texture, &srcRect, &rect);
