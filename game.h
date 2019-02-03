@@ -21,15 +21,10 @@ enum GameMode {
     MODE_RESOURCES,
 };
 
-enum DPadKey {
-    DPAD_LEFT,
-    DPAD_UP,
-    DPAD_RIGHT,
-    DPAD_DOWN,
-    DPAD_A,
-    DPAD_B,
-    DPAD_SELECT=10,
-    DPAD_START,
+enum ButtonType {
+    BUTTON_LEFT,
+    BUTTON_MIDDLE,
+    BUTTON_RIGHT,
 };
 
 typedef std::map<int,Screen *> ScreenMap;
@@ -49,7 +44,8 @@ public:
     void setMode(int newMode);
     void update(int elapsed);
     void draw();
-    void handleAction(int which,int id,bool down);
+    void handleAction(int x,int y,int id,bool down);
+    void handleMotion(int x,int y,bool down);
 };
 
 extern Game game;

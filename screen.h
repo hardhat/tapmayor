@@ -9,7 +9,8 @@ public:
 	virtual void resetGame();
 	virtual void update(int elapsed);
 	virtual void draw();
-	virtual void handleAction(int which,int id,bool down);
+	virtual void handleAction(int x,int y,int id,bool down);
+	virtual void handleMotion(int x,int y,bool down);
 };
 
 #endif

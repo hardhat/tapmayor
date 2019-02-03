@@ -50,12 +50,23 @@ void Game::draw()
     }
 }
 
-void Game::handleAction(int which,int id,bool down)
+void Game::handleAction(int x,int y,int id,bool down)
 {
     if(screenMap.find(mode)!=screenMap.end()) {
         Screen *screen=screenMap[mode];
 
-        screen->handleAction(which,id,down);
+        screen->handleAction(x,y,id,down);
+    } else {
+        setMode(MODE_START);
+    }
+}
+
+void Game::handleMotion(int x,int y,bool down)
+{
+    if(screenMap.find(mode)!=screenMap.end()) {
+        Screen *screen=screenMap[mode];
+
+        screen->handleMotion(x,y,down);
     } else {
         setMode(MODE_START);
     }

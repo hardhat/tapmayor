@@ -135,132 +135,20 @@ int main(int argc,char **argv)
                     // exit if ESCAPE is pressed
                     if (event.key.keysym.sym == SDLK_ESCAPE)
                         done = true;
-                    switch(event.key.keysym.sym) {
-                    case SDLK_DOWN:
-                        game.handleAction(0,DPAD_DOWN,true);
-                        break;
-                    case SDLK_UP:
-                        game.handleAction(0,DPAD_UP,true);
-                        break;
-                    case SDLK_LEFT:
-                        game.handleAction(0,DPAD_LEFT,true);
-                        break;
-                    case SDLK_RIGHT:
-                        game.handleAction(0,DPAD_RIGHT,true);
-                        break;
-                    case 'a':
-                        game.handleAction(0,DPAD_A,true);
-                        break;
-                    case 'b':
-                        game.handleAction(0,DPAD_B,true);
-                        break;
-                    case SDLK_TAB:
-                        game.handleAction(0,DPAD_START,true);
-                        break;
-                    case SDLK_SPACE:
-                        game.handleAction(0,DPAD_SELECT,true);
-                        break;
-                    case SDLK_RETURN:
+                    if (event.key.keysym.sym == SDLK_RETURN)
                         game.resetGame();
-                        break;
-                    default:
-                        game.handleAction(0,event.key.keysym.sym,true);
-                    }
-                    break;
-                }
-            case SDL_KEYUP:
-                switch(event.key.keysym.sym) {
-                case SDLK_DOWN:
-                    game.handleAction(0,DPAD_DOWN,false);
-                    break;
-                case SDLK_UP:
-                    game.handleAction(0,DPAD_UP,false);
-                    break;
-                case SDLK_LEFT:
-                    game.handleAction(9,DPAD_LEFT,false);
-                    break;
-                case SDLK_RIGHT:
-                    game.handleAction(0,DPAD_RIGHT,false);
-                    break;
-                case 'a':
-                    game.handleAction(0,DPAD_A,false);
-                    break;
-                case 'b':
-                    game.handleAction(0,DPAD_B,false);
-                    break;
-                case SDLK_TAB:
-                    game.handleAction(0,DPAD_START,false);
-                    break;
-                case SDLK_SPACE:
-                    game.handleAction(0,DPAD_SELECT,false);
-                    break;
-                default:
-                    game.handleAction(0,event.key.keysym.sym,false);
                     break;
                 }
             	break;
-            case SDL_JOYBUTTONDOWN:
-		//printf("Stick %d button %d down!\n",event.jbutton.which,event.jbutton.button);
-		if(event.jbutton.button<8 && (event.jbutton.button%2)==1) {
-			game.handleAction(event.jbutton.which,DPAD_A,true);
-		} else if(event.jbutton.button<8 && (event.jbutton.button%2)==0) {
-			game.handleAction(event.jbutton.which,DPAD_B,true);
-		} else if(event.jbutton.button==8) {
-        	game.handleAction(event.jbutton.which,DPAD_SELECT,true);
-		} else if(event.jbutton.button==9) {
-			game.handleAction(event.jbutton.which,DPAD_START,true);
-		}
-        D("player %d:",event.jbutton.which);
-        D("button %d down\n",event.jbutton.button);
-		break;
-	    case SDL_JOYBUTTONUP:
-		//printf("Stick %d button %d up!\n",event.jbutton.which,event.jbutton.button);
-		if(event.jbutton.button<8 && (event.jbutton.button%2)==1) {
-			game.handleAction(event.jbutton.which,DPAD_A,false);
-		} else if(event.jbutton.button<8 && (event.jbutton.button%2)==0) {
-			game.handleAction(event.jbutton.which,DPAD_B,false);
-		} else if(event.jbutton.button==8) {
-        	game.handleAction(event.jbutton.which,DPAD_START,false);
-		} else if(event.jbutton.button==9) {
-			game.handleAction(event.jbutton.which,DPAD_SELECT,false);
-		}
-        break;
-            case SDL_JOYAXISMOTION:
-		//printf("Stick %d Axis %d Motion %d\n",event.jaxis.which,event.jaxis.axis,event.jaxis.value);
-		if(event.jaxis.axis==1 && event.jaxis.value>=16384) {
-            if(dir[DPAD_UP][event.jaxis.which]) game.handleAction(event.jaxis.which,DPAD_UP,false);
-			game.handleAction(event.jaxis.which,DPAD_DOWN,true);
-			dir[DPAD_DOWN][event.jaxis.which]=true;
-            dir[DPAD_UP][event.jaxis.which]=false;
-		} else if(event.jaxis.axis==1 && event.jaxis.value>-16384) {
-			if(dir[DPAD_DOWN][event.jaxis.which]) game.handleAction(event.jaxis.which,DPAD_DOWN,false);
-            if(dir[DPAD_UP][event.jaxis.which]) game.handleAction(event.jaxis.which,DPAD_UP,false);
-			dir[DPAD_DOWN][event.jaxis.which]=false;
-            dir[DPAD_UP][event.jaxis.which]=false;
-		} else if(event.jaxis.axis==1 && event.jaxis.value<=-16384) {
-			if(dir[DPAD_DOWN][event.jaxis.which]) game.handleAction(event.jaxis.which,DPAD_DOWN,false);
-        	game.handleAction(event.jaxis.which,DPAD_UP,true);
-			dir[DPAD_DOWN][event.jaxis.which]=false;
-            dir[DPAD_UP][event.jaxis.which]=true;
-		}
-
-        if(event.jaxis.axis==0 && event.jaxis.value<-16384) {
-            if(dir[DPAD_RIGHT][event.jaxis.which]) game.handleAction(event.jaxis.which,DPAD_RIGHT,false);
-			game.handleAction(event.jaxis.which,DPAD_LEFT,true);
-			dir[DPAD_LEFT][event.jaxis.which]=true;
-            dir[DPAD_RIGHT][event.jaxis.which]=false;
-		} else if(event.jaxis.axis==0 && event.jaxis.value<16384) {
-			if(dir[DPAD_LEFT][event.jaxis.which]) game.handleAction(event.jaxis.which,DPAD_LEFT,false);
-            if(dir[DPAD_RIGHT][event.jaxis.which]) game.handleAction(event.jaxis.which,DPAD_RIGHT,false);
-			dir[DPAD_LEFT][event.jaxis.which]=false;
-            dir[DPAD_RIGHT][event.jaxis.which]=false;
-		} else if(event.jaxis.axis==0 && event.jaxis.value>=16384) {
-			if(dir[DPAD_LEFT][event.jaxis.which]) game.handleAction(event.jaxis.which,DPAD_LEFT,false);
-        	game.handleAction(event.jaxis.which,DPAD_RIGHT,true);
-			dir[DPAD_LEFT][event.jaxis.which]=false;
-            dir[DPAD_RIGHT][event.jaxis.which]=true;
-		}
-		break;
+            case SDL_MOUSEBUTTONUP:
+                game.handleAction(event.button.x/renderScale,event.button.y/renderScale,event.button.button,false);
+                break;
+            case SDL_MOUSEBUTTONDOWN:
+                game.handleAction(event.button.x/renderScale,event.button.y/renderScale,event.button.button,true);
+                break;
+            case SDL_MOUSEMOTION:
+                game.handleMotion(event.motion.x/renderScale,event.motion.y/renderScale,event.motion.state&SDL_BUTTON_LMASK?true:false);
+                break;
             case SDL_WINDOWEVENT:
 		if(event.window.event==SDL_WINDOWEVENT_RESIZED) {
 			renderScale=event.window.data1/(float)screenw;
