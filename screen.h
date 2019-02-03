@@ -3,6 +3,9 @@
 
 class Screen {
 public:
+	int x,y;
+	bool down;
+
 	Screen();
 	virtual ~Screen();
 

@@ -39,6 +39,7 @@ Tile::Tile(const char *name,int tileWidth,int tileHeight,int spacing)
 		fprintf(stderr,"Can't load image '%s'\n",path.c_str());
 		return;
 	}
+	fprintf(stderr,"Loaded image '%s'\n",path.c_str());
 
     SDL_Texture* tex = NULL;
     tex = SDL_CreateTextureFromSurface(renderer, bitmap);
